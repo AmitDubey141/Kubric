@@ -17,6 +17,15 @@ def predict_price(area) -> float:
     """
     response = requests.get(TRAIN_DATA_URL)
     # YOUR IMPLEMENTATION HERE
+    df=pd.read_csv("https://storage.googleapis.com/kubric-hiring/linreg_train.csv")
+    df=df.drop(['area',axis=1)
+                
+    area=df.columns.to_numpy().astype(float)
+    price=df.values
+    slope, intercept, r_value, p_value, std_err = stats.linregress(area,price)
+    print(slope)
+    print(intercept)
+    print(r_value)
     ...
 
 
